@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
- 
-struct Node *f = NULL;
-struct Node *r = NULL;
- 
+  
 struct Node
 {
     int data;
@@ -20,7 +17,7 @@ void linkedListTraversal(struct Node *ptr)
     }
 }
  
-void enqueue(int val)
+void enqueue(struct Node *f, struct Node *r, int val)
 {
     struct Node *n = (struct Node *) malloc(sizeof(struct Node));
     if(n==NULL){
@@ -39,7 +36,7 @@ void enqueue(int val)
     }
 }
  
-int dequeue()
+int dequeue(struct Node *f, struct Node *r,)
 {
     int val = -1;
     struct Node *ptr = f;
@@ -56,16 +53,20 @@ int dequeue()
  
 int main()
 {
+    int x;
+    struct Node *f = NULL;
+    struct Node *r = NULL;
+
     linkedListTraversal(f);
-    printf("Dequeuing element %d\n", dequeue());
+    printf("Dequeuing element %d\n",dequeue(f, r));
     enqueue(34);
     enqueue(4);
     enqueue(7);
     enqueue(17);
-    printf("Dequeuing element %d\n", dequeue());
-    printf("Dequeuing element %d\n", dequeue());
-    printf("Dequeuing element %d\n", dequeue());
-    printf("Dequeuing element %d\n", dequeue());
+    printf("Dequeuing element %d\n",dequeue(f, r));
+    printf("Dequeuing element %d\n",dequeue(f, r));
+    printf("Dequeuing element %d\n",dequeue(f, r));
+    printf("Dequeuing element %d\n",dequeue(f, r));
     linkedListTraversal(f);
     return 0;
 }
